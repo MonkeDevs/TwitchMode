@@ -1,5 +1,6 @@
 package uwu.vutuvmonke.twitchmode;
 
+import org.bukkit.event.EventPriority;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,7 +17,7 @@ public class ChatListener implements Listener {
     this.replace = plugin.getConfig().getString("replace");
   }
 
-  @EventHandler
+  @EventHandler(priority = EventPriority.HIGHEST)
   public void onMessage(final AsyncChatEvent event) {
     var componentMessage = event.originalMessage();
 
