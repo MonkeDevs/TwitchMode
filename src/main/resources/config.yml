@@ -1,0 +1,7 @@
+banwords: 'nigga|hohol|pidoras' # regex
+replace: '*****' # '' to hide messages
+messages:
+  enabled: '<green>Twitch mode enabled!'
+  disabled: '<red>Twitch mode disabled!'
+  reloaded: '<green>TwitchMode reloaded.'
+  no-permission: '<red>No permission!'
