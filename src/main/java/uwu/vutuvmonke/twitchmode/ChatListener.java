@@ -22,11 +22,11 @@ public class ChatListener implements Listener {
 
     String message = Serializer.serialize(componentMessage);
     String result = message.replaceAll(banwords, replace);
+    var componentResult = Serializer.deserialize(result);
     if (!result.equals(message)) {
-      if (replace.isEmpty()) {
-        event.viewers().removeAll(this.plugin.getStreamers());
-      } else {
-        event.message(Serializer.deserialize(result));
+      event.viewers().removeAll(this.plugin.getStreamers());
+      if (!replace.isEmpty()) {
+        this.plugin.getStreamers().forEach(audience -> audience.sendMessage(componentResult));
       }
     }
   }
